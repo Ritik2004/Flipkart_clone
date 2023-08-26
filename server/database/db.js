@@ -2,7 +2,7 @@ import mongoose from "mongoose";
 
 
 export const Connection = async () => {
-    const URL = 'mongodb+srv://ritikgaur:ritikgaur@cluster0.bksfhdh.mongodb.net/';
+    
     try{
         await mongoose.connect(process.env.MONGO_URI, {
             dbName:"ecom"
