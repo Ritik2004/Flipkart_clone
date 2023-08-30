@@ -1,5 +1,14 @@
+import * as actionTypes from '../constants/productConstant';
 
+//it takes 2 argument current state and action
+export const getProductsReducer = (state = {products: []}, action) => {
 
-export const getProductsReducer = () => {
-     
+      switch(action.type) {
+        case actionTypes.GET_PRODUCTS_SUCCESS:
+            return { products: action.payload }
+        case actionTypes.GET_PRODUCTS_FAIL:
+            return {error: action.payload}
+        default :
+           return state
+      }
 }
