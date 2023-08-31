@@ -1,14 +1,18 @@
 import React from 'react'
 import Carousel from "react-multi-carousel";
-import { Box, Typography, styled } from '@mui/material'
+import { styled } from '@mui/material'
 
 import { bannerData } from '../../constants/data';
 import 'react-multi-carousel/lib/styles.css';
 
-const Image = styled('img')({
+const Image = styled('img')(({ theme } )=> ({
     width:'100%',
-    height:200
-})
+    height:200,
+    [theme.breakpoints.down('md')]: {
+      ObjectFit:'cover',
+      height:180
+    }
+}))
 
 const responsive = {
     desktop: {
