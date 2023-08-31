@@ -7,10 +7,12 @@ import thunk from 'redux-thunk'
 //this is used to attach with the redux dev tool
 import {composeWithDevTools} from 'redux-devtools-extension'
 
-import { getProductsReducer } from './reducer/productReducer';
+import { getProductsReducer, getProductDetailReducer } from './reducer/productReducer';
+
 
 const reducer = combineReducers({
-    getProducts: getProductsReducer
+    getProducts: getProductsReducer,
+    getProductDetails: getProductDetailReducer
 })
 
 const middleware = [thunk];

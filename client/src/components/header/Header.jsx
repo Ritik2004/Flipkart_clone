@@ -1,6 +1,7 @@
 import {AppBar, Toolbar, styled, Box, Typography} from '@mui/material';
 import Search from './Search';
 import CustomButtons from './CustomButtons';
+import {Link} from 'react-router-dom';
 
 //for styling the mui we are using styled components
 //we are storing it inside styledHeader variable and replace AppBar with it
@@ -13,6 +14,8 @@ const Component = styled(Box)`
   margin-left: 12%;
   line-height: 0;
 `
+
+
 const SubHeading = styled(Typography)`
  font-size: 10px;
  font-style:italic;
@@ -33,6 +36,7 @@ const Header = () => {
     return (
       <StyledHeader>
         <Toolbar style={{minHeight:55}}>
+            <Link to='/' style={{textDecoration:'none', color:'inherit'}}>
              <Component>
                   <img src={logoURL} alt="logo" style={{ width:75 }}/>
                   <Box style={{display: 'flex'}}>
@@ -42,6 +46,7 @@ const Header = () => {
                       <PlusImage src={subURL} alt="subLogo"/>
                   </Box>
              </Component>
+             </Link>
              <Search/>
              <CustomButtonWrapper>
               <CustomButtons/>
