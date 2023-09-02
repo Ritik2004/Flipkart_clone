@@ -10,9 +10,11 @@ const StyledHeader = styled(AppBar)`
   height: 55px;
 `;
 
-const Component = styled(Box)`
+const Component = styled(Link)`
   margin-left: 12%;
   line-height: 0;
+  text-decoration: none;
+  color:'inherit'
 `
 
 
@@ -36,8 +38,7 @@ const Header = () => {
     return (
       <StyledHeader>
         <Toolbar style={{minHeight:55}}>
-            <Link to='/' style={{textDecoration:'none', color:'inherit'}}>
-             <Component>
+             <Component to='/'>
                   <img src={logoURL} alt="logo" style={{ width:75 }}/>
                   <Box style={{display: 'flex'}}>
                       <SubHeading>Explore&nbsp;
@@ -46,7 +47,6 @@ const Header = () => {
                       <PlusImage src={subURL} alt="subLogo"/>
                   </Box>
              </Component>
-             </Link>
              <Search/>
              <CustomButtonWrapper>
               <CustomButtons/>
