@@ -1,7 +1,10 @@
-import {AppBar, Toolbar, styled, Box, Typography} from '@mui/material';
+import {AppBar, Toolbar, styled, Box, Typography, IconButton,List,ListItem ,Drawer} from '@mui/material';
 import Search from './Search';
+import { useState } from 'react';
 import CustomButtons from './CustomButtons';
 import {Link} from 'react-router-dom';
+
+import { Menu } from '@mui/icons-material';
 
 //for styling the mui we are using styled components
 //we are storing it inside styledHeader variable and replace AppBar with it
@@ -29,16 +32,56 @@ const PlusImage = styled('img')({
   marginLeft:4
 })
 
-const CustomButtonWrapper = styled(Box)`
-    margin: 0 5% 0 auto;
-`
+const MenuButton = styled(IconButton)(({ theme }) => ({
+    display: 'none',
+    [theme.breakpoints.down('sm')]: {
+        display: 'block'
+    }
+}));
+
+const CustomButtonWrapper = styled('span')(({ theme }) => ({ 
+    margin: '0 5% 0 auto', 
+    [theme.breakpoints.down('md')]: {
+        display: 'none'
+    }
+}));
+
+
 const Header = () => {
   const logoURL = 'https://static-assets-web.flixcart.com/www/linchpin/fk-cp-zion/img/flipkart-plus_8d85f4.png';
   const subURL = 'https://static-assets-web.flixcart.com/www/linchpin/fk-cp-zion/img/plus_aef861.png';
-    return (
+  
+  const [open, setOpen] = useState(false);
+
+  const handleOpen = () => {
+   setOpen(true);
+  }
+
+  const handleClose = () => {
+     setOpen(false);
+  }
+
+  const list = () => (
+        <Box style={{ width: 250 }} onClick={handleClose}>
+            <List>
+                <listItem button>
+                    <CustomButtons />
+                </listItem>
+            </List>
+        </Box>
+    );
+  
+  return (
       <StyledHeader>
         <Toolbar style={{minHeight:55}}>
-             <Component to='/'>
+          <MenuButton color='inherit' onClick={handleOpen}>
+             <Menu/>
+          </MenuButton>
+          
+          <Drawer open ={open} onClose={handleClose}>
+          {list()}
+          </Drawer>
+         <Component to='/'>
                   <img src={logoURL} alt="logo" style={{ width:75 }}/>
                   <Box style={{display: 'flex'}}>
                       <SubHeading>Explore&nbsp;
