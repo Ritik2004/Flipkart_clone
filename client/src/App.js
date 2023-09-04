@@ -3,6 +3,8 @@ import Header from './components/header/Header'
 import Home from './components/home/Home'
 import DetailView from './components/details/DetailView';
 
+import Cart from './components/cart/Cart';
+
 import DataProvider from './context/DataProvider';
 
 import { Box } from '@mui/material';
@@ -17,6 +19,8 @@ function App() {
     <Routes>
     <Route path="/" element={<Home/>}/>
     <Route path="/product/:id" element={<DetailView/>}/>
+    <Route path='/cart' element={<Cart/>}/>
+    
     </Routes>
 
     </Box>
