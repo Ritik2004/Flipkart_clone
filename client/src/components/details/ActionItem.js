@@ -12,6 +12,7 @@ import { addToCart } from '../../redux/actions/cartAction';
 
 
 
+
 const LeftContainer = styled(Box)(({ theme }) => ({
   minWidth: '40%',
   padding: '40px 0 0 80px',
@@ -50,13 +51,13 @@ const ActionItem = ({product}) => {
   
   const dispatch = useDispatch();
 
-
+  console.log(process.env.REACT_APP_KEY_ID)
   const initPayment = (data) => {
 		const options = {
-			key: "rzp_test_tOlH7086z8snqF",
+			key: process.env.REACT_APP_KEY_ID ,
 			amount: data.amount,
 			currency: data.currency,
-			// name: book.name,
+			 
 			description: "Test Transaction",
 			order_id: data.id,
 			handler: async (response) => {
