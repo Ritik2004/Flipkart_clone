@@ -51,7 +51,7 @@ const ActionItem = ({product}) => {
   
   const dispatch = useDispatch();
 
-  console.log(process.env.REACT_APP_KEY_ID)
+  
   const initPayment = (data) => {
 		const options = {
 			key: process.env.REACT_APP_KEY_ID ,
