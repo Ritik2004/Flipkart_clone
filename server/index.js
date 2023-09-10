@@ -10,7 +10,11 @@ import Router from "./routes/route.js";
 
 const app = express();
 dotenv.config();
-app.use(cors())
+app.use(cors({
+    origin:[process.env.FRONTEND_URL],
+    methods:["GET","POST","PUT","DELETE"],
+    credentials:true,
+}))
 app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({extended: true}))
 Connection();
