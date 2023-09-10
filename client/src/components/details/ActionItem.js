@@ -62,7 +62,7 @@ const ActionItem = ({product}) => {
 			order_id: data.id,
 			handler: async (response) => {
 				try {
-					const verifyUrl = "http://localhost:8080/verify";
+					const verifyUrl = "https://flipkartc-back.onrender.com/verify";
 					const { data } = await axios.post(verifyUrl, response);
 					console.log(data);
 				} catch (error) {
@@ -79,7 +79,7 @@ const ActionItem = ({product}) => {
 
   const handlePayment = async () => {
     try{
-     const orderUrl = "http://localhost:8000/orders"
+     const orderUrl = "https://flipkartc-back.onrender.com/orders"
      const {data} = await axios.post(orderUrl, {amount:product.price.cost})
        console.log(data.data);
        initPayment(data.data)
