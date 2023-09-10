@@ -17,7 +17,7 @@ Connection();
 
 app.use('/', Router);
 
-const Port = 8000;
+const Port = process.env.PORT || 8000;
 
 
 
