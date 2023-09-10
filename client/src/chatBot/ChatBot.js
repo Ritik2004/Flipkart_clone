@@ -5,11 +5,12 @@ import { Configuration, OpenAIApi } from "openai";
 import './button.css'
 
 
+
 const configuration = new Configuration({
     // organization:"org-ykbSvNiaSIO6cjZl5uFCUlCe",
-    // apiKey: "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"
-    organization: process.env.OPENAI_ORGANIZATION,
-    apiKey:process.env.OPENAI_API_KEY
+    // apiKey: "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"
+    organization: process.env.REACT_APP_ORGANIZATION,
+    apiKey:process.env.REACT_APP_API_KEY
     
 });
 
@@ -19,6 +20,8 @@ const openai = new OpenAIApi(configuration);
 
 
 const ChatBot = () => {
+   
+    
 
     const[message, setMessage] = useState("");
     const[chats, setChats] = useState([]);
